@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../Assets/Fonts/Minecraft.ttf') format('truetype');
+}
+  
+
+body {
+    font-family: 'Arial', sans-serif; /* Añade tu fuente predeterminada si lo deseas */
+    line-height: 1.6;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: stretch;
+}
+
+#fondo{
+    background-color: aqua;
+    background-image: url('../Assets/Imagenes/Fondo.jpg');
+    width: 1280px;
+    height: 715px;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: xx-large;
+    font-family: 'Minecraft', sans-serif;
+    color: white;
+    margin-top: 2.5%;
+}
+
+#RedHead{
+    
+    margin-left: 3%;
+}
+
+
+
+#BlueHead{
+    margin-right: 4%;
+}
+
+#TurnHead{
+    color: black;
+    font-size: 2.5rem;
+}
+
+#tablero{
+    
+    width: 690px;
+    height: 460px;
+    margin-top: 3%;
+    margin-left: 23%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 3 columnas con el mismo tamaño */
+    gap: 10px; /* Espacio entre las celdas */;
+}
+
+.carta{
+    width: 107px;
+    height: 147px;
+    background-size: contain;
+}
+
+/* .carta:disabled
+{
+    background-image: url('../Assets/Imagenes/Fondo.jpg');
+} */
+
+.carta:active{
+    background-image: url('../Assets/Imagenes/CartaR.jpg');
+}

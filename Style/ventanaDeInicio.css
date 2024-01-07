@@ -1,0 +1,80 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../Assets/Fonts/Minecraft.ttf') format('truetype');
+}
+  
+
+body {
+    font-family: 'Arial', sans-serif; /* Añade tu fuente predeterminada si lo deseas */
+    line-height: 1.6;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: stretch;
+}
+
+#Titulo
+{
+    text-align: center;
+}
+
+#Ventana{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: stretch;
+    width: 450px;
+    height: 100vh;
+    background-color: aqua;
+    background-image: url('../Assets/Imagenes/FondoMenuPrincipal.jpg');
+    background-position: center; /* Centrar la imagen de fondo */
+}
+
+.boton{
+    width: 200px;
+    height: 50px;
+    background-image: url('../Assets/Imagenes/Boton para Menu.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size: x-large;
+    font-family: 'Minecraft','sans-serif';
+    text-align: center;
+}
+
+/* .boton:active{
+    
+} */
+
+.contenedor{
+    margin-left: 23%;
+    display:grid;
+    grid-template-columns: 1fr 4fr;
+    width: 500px;
+}
+
+.Pokemon{
+    width: 126px;
+    height: 126px;
+    margin-right: -10%;
+}
+
+.vinculo {
+    text-decoration: none;
+    width: 200px;
+    height: 50px;
+    margin-top: 10%;
+}
+
+.vinculo:visited {
+    color:black;
+    text-decoration: none;
+}
