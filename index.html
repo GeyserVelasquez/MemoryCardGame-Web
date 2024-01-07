@@ -3,46 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Memeria</title>
+    <title>Juego de Memoria</title>
     <link rel="stylesheet" href="Style\ventanaDeInicio.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+
 </head>
 <body>
-    <div id="Ventana">
+    <div id="ventana">
+        
+        <audio id="audio" src="Assets\Songs\introPKM.mp3" autoplay loop></audio>
 
-        <br /><br /><br /><br /><br />
-        <div class="contenedor">
-            <img class="Pokemon" src="./Assets/Imagenes/Charmander.png" alt="Charmander" />
-            <a class="vinculo" href="juego.html">
-                <button class="boton">Jugar</button>
-            </a>
+        
+            <br /> <br /><br /><br />
+            <div class="contenedor">
+                <img class="Pokemon" src="./Assets/Imagenes/Charmander.png" alt="Charmander" />
+                <a class="vinculo" href="juego.html">
+                    <button class="boton">Jugar</button>
+                </a>
+            </div>
+    
+            <div class="contenedor">
+                <img class="Pokemon" src="./Assets/Imagenes/squirtle.png" alt="squirtle" />
+                <a class="vinculo" href="manual.html">
+                    <button class="boton">Manual de Usuario</button>
+                </a>
+            </div>
+    
+            <div class="contenedor">
+                <img class="Pokemon" src="./Assets/Imagenes/Bulbasur.png" alt="Bulbasur" />
+                <a class="vinculo">
+                    <button class="boton" id="sound">Musica
+                        <img id="speaker" src="./Assets/Imagenes/soundOFF.svg" alt="Speaker" />
+                    </button>
+                  <!--El boton salir no funciona si se regreso a index manualmente desde los botones anterior y siguiente pagina del navegador  -->
+                </a>
+            </div>
+
+            <div class="contenedor">
+                <img class="Pokemon" src="./Assets/Imagenes/Pikachu.png" alt="Pikachu" />
+                <a class="vinculo">
+                    <button class="boton" onclick="cerrarPagina()">Salir</button>
+                  <!--El boton salir no funciona si se regreso a index manualmente desde los botones anterior y siguiente pagina del navegador  -->
+                </a>
+            </div>
         </div>
-
-        <div class="contenedor">
-            <img class="Pokemon" src="./Assets/Imagenes/squirtle.png" alt="squirtle" />
-            <a class="vinculo">
-                <button class="boton">Manual de Usuario</button>
-            </a>
-        </div>
-
-        <div class="contenedor">
-            <img class="Pokemon" src="./Assets/Imagenes/Bulbasur.png" alt="Bulbasur" />
-            <a class="vinculo">
-                <button class="boton" onclick="cerrarPagina()">Salir</button>
-              <!--El boton salir no funciona si se regreso a index manualmente desde los botones anterior y siguiente pagina del navegador  -->
-            </a>
-        </div>
-        <script>
-
-            function cerrarPagina() {
-                // Intenta cerrar la ventana actual
-                window.close();
-            }
-
-            document.addEventListener('DOMContentLoaded', function() {
-                var miMusica = document.getElementById('miMusica');
-                miMusica.play();
-            });
-
-        </script>
+        <script type="module" src=".\Scripts\Logical\Music\Music.js"></script>
 </body>
 </html>

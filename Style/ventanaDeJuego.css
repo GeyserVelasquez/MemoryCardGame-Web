@@ -18,9 +18,14 @@ body {
     justify-content: center;
     align-content: center;
     justify-items: stretch;
+    background-image: url('../Assets/Imagenes/Boton para Menu.jpg');
+    background-size: cover;
 }
 
 #fondo{
+    /* display: flex;
+    align-items: flex-end;
+    justify-content: flex-end; */
     background-color: aqua;
     background-image: url('../Assets/Imagenes/Fondo.jpg');
     width: 1280px;
@@ -38,7 +43,7 @@ body {
 }
 
 #RedHead{
-    
+
     margin-left: 3%;
 }
 
@@ -70,11 +75,34 @@ body {
     background-size: contain;
 }
 
-/* .carta:disabled
-{
-    background-image: url('../Assets/Imagenes/Fondo.jpg');
-} */
+#footer{
+    margin-top: 1%;
+    margin-right: 3%;
+    margin-left: 3%;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row;
+    
+}
 
-.carta:active{
-    background-image: url('../Assets/Imagenes/CartaR.jpg');
+.boton{
+    width: 200px;
+    height: 50px;
+    background-image: url('../Assets/Imagenes/Boton para Menu.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size: x-large;
+    font-family: 'Minecraft','sans-serif';
+    text-align: center;
+}
+
+.vinculo {
+    text-decoration: none;
+    width: 200px;
+    height: 50px;
+}
+
+.carta:disabled
+{
+    background-image: url('Assets/Imagenes/Fondo.jpg');
 }

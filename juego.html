@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Style\ventanaDeJuego.css">
 </head>
 <body>
+    <audio id="audio" src="Assets\Songs\GameOST.mp3" autoplay loop></audio>
     <div id="fondo">
         <div id="header">
             <div id="RedHead">
@@ -26,8 +27,17 @@
         <div id="tablero">
 
         </div>
+        <div id="footer">
+            <a class="vinculo" href="juego.html">
+                <button class="boton">Reiniciar</button>
+            </a>
+            <a class="vinculo" href="index.html">
+                <button class="boton">Regresar</button>
+            </a>
+        </div>
     </div>
-    <script type="module" src="Scripts\Logical\JuegoDeMemoria.js"></script>
+    <script type="module" src=".\Scripts\Logical\Music\Music.js"></script>
+    <script type="module" src=".\Scripts\Logical\JuegoDeMemoria.js"></script>
     <!-- <script type="module" src="Scripts\Feactures\Partida.js"></script> -->
 </body>
 </html>

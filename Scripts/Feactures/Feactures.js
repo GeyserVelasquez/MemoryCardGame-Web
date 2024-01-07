@@ -1,9 +1,8 @@
 export class Carta {
 
-    constructor(ID, Puntaje, imagen) {
+    constructor(ID, Puntaje) {
         this.ID = ID;
-        this.Puntaje = Puntaje; 
-        this.imagen = imagen;
+        this.Puntaje = Puntaje;
         this.siguiente = null; 
     }
 

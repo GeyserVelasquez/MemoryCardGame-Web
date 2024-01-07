@@ -19,6 +19,9 @@ body {
     justify-content: center;
     align-content: center;
     justify-items: stretch;
+    background-image: url('../Assets/Imagenes/Boton para Menu.jpg');
+    background-size:cover;
+    /* background-repeat: no-repeat; */
 }
 
 #Titulo
@@ -26,16 +29,17 @@ body {
     text-align: center;
 }
 
-#Ventana{
+#ventana{
     display: grid;
     align-items: center;
     justify-content: center;
     align-content: center;
-    justify-items: stretch;
+    justify-items: center;
     width: 450px;
     height: 100vh;
     background-color: aqua;
     background-image: url('../Assets/Imagenes/FondoMenuPrincipal.jpg');
+    background-size: cover;
     background-position: center; /* Centrar la imagen de fondo */
 }
 
@@ -48,8 +52,56 @@ body {
     font-size: x-large;
     font-family: 'Minecraft','sans-serif';
     text-align: center;
+
+    display: grid;
+    grid-template-columns: auto auto; /* Dos columnas de ancho automático */
+    grid-gap: 10px; /* Espacio entre los elementos */
+    justify-content: center;
+    align-items: center;
+    /* align-content: center; */
 }
 
+#iniciar {
+    /* margin-bottom: 500px; */
+    
+    animation: latido 3s infinite;
+}
+
+#inicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: black;
+    margin-top: 110px;
+    width: 410px;
+    height: 580px;
+    background-color: blueviolet;
+    font-size: x-large;
+    font-family: 'Minecraft','sans-serif';
+    text-align: center;
+}
+
+@keyframes latido {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+
+#display{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: stretch;
+}
 /* .boton:active{
     
 } */
@@ -59,12 +111,18 @@ body {
     display:grid;
     grid-template-columns: 1fr 4fr;
     width: 500px;
+    /* visibility: hidden; */
 }
 
 .Pokemon{
     width: 126px;
     height: 126px;
     margin-right: -10%;
+}
+
+#speaker {
+    width: 2rem;
+    height: 2rem;
 }
 
 .vinculo {

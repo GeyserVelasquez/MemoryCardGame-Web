@@ -1,5 +1,4 @@
 import { Jugador } from "./Feactures.js";
-import { Carta } from "./Feactures.js";
 
 export class Partida {
     jugador1;
@@ -21,7 +20,6 @@ export class Partida {
     
     CambiarTurno() {
 
-        let turnos = this.jugadorActual.turnos;
         let TurnHeader = document.getElementById('TurnHead');
 
         if (this.jugadorActual === this.jugador1) {
@@ -38,8 +36,8 @@ export class Partida {
     manejarEventoCarta(carta) {
         if (this.puedesHacerClic && carta.disabled===false) {
 
-            carta.disabled = true;
-            let imgURL = "../Assets/Imagenes/Carta"+carta.id+".jpg"; // en esta parte solo se cambia la imagen para similuar que se voltea la carta
+            // carta.disabled = true;
+            let imgURL = "Assets/Imagenes/Carta"+carta.id+".jpg"; // en esta parte solo se cambia la imagen para similuar que se voltea la carta
             carta.style.backgroundImage = `url('${imgURL}')`;
             this.cartasDesactivadas++; 
 
@@ -72,11 +70,12 @@ export class Partida {
                     this.jugadorActual.puntos+=5;
                     this.cartasDesactivadasTotal++;
                     this.alterarPuntaje();
+                    
             } else {
 
                 this.carta1.disabled = false;
                 this.carta2.disabled = false;
-                let imgURL = "../Assets/Imagenes/Carta0.jpg"; // en esta parte solo se cambia la imagen para similuar que se voltea la carta
+                let imgURL = "Assets/Imagenes/Carta0.jpg"; // en esta parte solo se cambia la imagen para similuar que se voltea la carta
                 this.carta1.style.backgroundImage = `url('${imgURL}')`;
                 this.carta2.style.backgroundImage = `url('${imgURL}')`;
                 this.CambiarTurno();
@@ -95,15 +94,17 @@ export class Partida {
 
     JuegoTerminado() {
 
-        let Ganador;
         if (this.jugador1.getPuntajeTotal() > this.jugador2.getPuntajeTotal()) { 
 
             this.Ganador = this.jugador1;
         } else {
             this.Ganador = this.jugador2;
         }
-
-        alert("Ganador: " + this.Ganador.nombre);
+        setTimeout(() => {
+            let TurnHeader = document.getElementById('TurnHead');
+            TurnHeader.innerHTML = "Ganador: " + this.Ganador.nombre;
+        }, 500);
+        
     }
 
     alterarPuntaje() {

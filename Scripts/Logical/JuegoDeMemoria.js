@@ -1,4 +1,4 @@
-import { Partida as Partida} from "../Feactures/Partida.js";
+import { Partida } from "../Feactures/Partida.js";
 
 import { Carta } from "../Feactures/Feactures.js";
 
@@ -10,7 +10,7 @@ let mazoCartas = new ListaSimple();
 
 for (let i = 1; i < 10; i++) {
     for (let j = 0; j < 2; j++) {
-        let nuevaCarta = new Carta(i, 5, "../Assets/Imagenes/Carta"+i+".jpg"); //Creacion de carta
+        let nuevaCarta = new Carta(i, 5); //Creacion de carta
         mazoCartas.agregarAlFinal(nuevaCarta); // Anadir Carta a la lista    
     }
 }
@@ -23,7 +23,7 @@ let actual = mazoCartas.get(0);
 let i=0;
 let a = mazoCartas.tamanio;
 console.log("tamanio: "+ a);
-let imgURL = "../Assets/Imagenes/Carta0.jpg";
+let imgURL = "Assets/Imagenes/Carta0.jpg";
 
 while (actual !== null)
 {   
@@ -34,12 +34,15 @@ while (actual !== null)
     // carta.style.backgroundImage = `url('${actual.imagen}')`; //Asignacion del fondo al button "carta"
     carta.style.backgroundImage = `url('${imgURL}')`;
     carta.onclick = () => {
-        // let ubicacion = "../Assets/Imagenes/CartaR.jpg";
-        // carta.style.backgroundImage = `url('${ubicacion}')`;
+
+        let ubicacion = "Assets/Imagenes/CartaR.jpg";
+        carta.style.backgroundImage = `url('${ubicacion}')`;
+
         setTimeout(() => {
             partida.manejarEventoCarta(carta);
         }, 400);
     };
+    
     tablero.appendChild(carta); //Insertar button "carta" al final del tablero
     actual = actual.siguiente; 
 }
