@@ -36,7 +36,7 @@ export class Partida {
     manejarEventoCarta(carta) {
         if (this.puedesHacerClic && carta.disabled===false) {
 
-            // carta.disabled = true;
+            carta.disabled = true;
             let imgURL = "Assets/Imagenes/Carta"+carta.id+".jpg"; // en esta parte solo se cambia la imagen para similuar que se voltea la carta
             carta.style.backgroundImage = `url('${imgURL}')`;
             this.cartasDesactivadas++; 
@@ -103,6 +103,10 @@ export class Partida {
         setTimeout(() => {
             let TurnHeader = document.getElementById('TurnHead');
             TurnHeader.innerHTML = "Ganador: " + this.Ganador.nombre;
+            TurnHeader.style.animation = "latido 1s infinite linear";
+
+            let audio = document.getElementById('audio');
+            audio.src = "Assets/Songs/Victory.mp3"
         }, 500);
         
     }

@@ -1,41 +1,66 @@
-window.addEventListener('DOMContentLoaded', function() {
+async function fetchData() {
+    try {
+        let response = await fetch('Scripts/Logical/Music/Music.json');
+        let data = await response.json();
 
-    //Logica para que las etiquetas de audio se pongan en true
+        // Accede a la información compartida
+        let music = data;
 
-    fetch('Scripts/Logical/Music/Music.js')
-    .then(response => response.json())
-    .then(data => {
-        // Hacer algo con los datos recibidos
-        // let audio = document.getElementById('audio');
-        // audio.autoplay = data;
-        console.log(data);
-    })
-    .catch(error => {
-      // Manejar cualquier error que ocurra
-      console.error('Error:', error);
-    });
+        
 
-    // ver si true o false 
-    
-    // play o pause de ser el caso
-
-    let audio = document.getElementById('audio');
-
-    if (audio.autoplay){
-        audio.play();
-    } else {
-        audio.pause();
-    }
-    
-    sound.addEventListener("click", function() {
+        // Obtiene la referencia al elemento de audio fuera de la función onclick
+        let sound = document.getElementById('sound');
         let audio = document.getElementById('audio');
         let speaker = document.getElementById('speaker');
-        if (audio.paused){
-            audio.play();
-            speaker.src = "./Assets/Imagenes/soundON.svg";
+
+        if (music.volumen) {
+            audio.autoplay = true;
         } else {
-            audio.pause();
-            speaker.src = "./Assets/Imagenes/soundOFF.svg";
+            audio.autoplay = false;
         }
-    });
-}); 
+
+        sound.addEventListener("click", function() {
+            if (audio.paused){
+                audio.play();
+                speaker.src = "./Assets/Imagenes/soundON.svg";
+                modificarJSON(true);
+            } else {
+                audio.pause();
+                speaker.src = "./Assets/Imagenes/soundOFF.svg";
+                modificarJSON(false);
+            }
+        });
+
+    } catch (error) {
+        console.error('Error fetching JSON:', error);
+    }
+}
+
+async function modificarJSON(value) {
+    try {
+        // Paso 1: Leer el archivo JSON existente
+        let response = await fetch('Scripts/Logical/Music/Music.json');
+        let data = await response.json();
+
+        // Paso 2: Modificar los datos en memoria
+        data.volumen = value;
+
+        // Otras operaciones de modificación...
+
+        // Paso 3: Escribir los datos modificados de vuelta al archivo
+        await fetch('Scripts/Logical/Music/Music.json', {
+            method: 'POST', // Puedes usar 'POST' dependiendo de la configuración del servidor
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        console.log('Archivo JSON modificado exitosamente.');
+    } catch (error) {
+        console.error('Error al modificar el archivo JSON:', error);
+    }
+}
+
+// Llama a la función para iniciar la operación
+fetchData()
