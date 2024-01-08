@@ -11,7 +11,7 @@
 <body>
     <div id="ventana">
         
-        <audio id="audio" src="Assets\Songs\introPKM.mp3" autoplay loop></audio>
+        <audio id="audio" src="Assets\Songs\introPKM.mp3" loop></audio>
 
         
             <br /> <br /><br /><br />
@@ -47,6 +47,17 @@
                 </a>
             </div>
         </div>
+
+        <script>
+            if (!localStorage.getItem('codigoEjecutado')) {
+                // Tu código aquí
+                let ajusteMusica = false;
+                localStorage.setItem('ajusteMusica', ajusteMusica.toString());
+                // Marcar que el código se ha ejecutado
+                localStorage.setItem('codigoEjecutado', true);
+            }
+        </script>
+        
         <script type="module" src=".\Scripts\Logical\Music\Music.js"></script>
 </body>
 </html>

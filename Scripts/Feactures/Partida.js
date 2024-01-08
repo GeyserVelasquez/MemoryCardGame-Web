@@ -1,5 +1,11 @@
 import { Jugador } from "./Feactures.js";
 
+function isVolumen() {
+    const ajusteMusicaGuardado = localStorage.getItem('ajusteMusica');
+    const volumen = ajusteMusicaGuardado === 'true';
+    return volumen;
+}
+
 export class Partida {
     jugador1;
     jugador2; 
@@ -101,12 +107,15 @@ export class Partida {
             this.Ganador = this.jugador2;
         }
         setTimeout(() => {
+
             let TurnHeader = document.getElementById('TurnHead');
             TurnHeader.innerHTML = "Ganador: " + this.Ganador.nombre;
             TurnHeader.style.animation = "latido 1s infinite linear";
-
-            let audio = document.getElementById('audio');
-            audio.src = "Assets/Songs/Victory.mp3"
+            if ( isVolumen()){
+                let audio = document.getElementById('audio');
+                audio.src = "Assets/Songs/Victory.mp3";
+                audio.play();
+            }
         }, 500);
         
     }

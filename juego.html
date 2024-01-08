@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Style\ventanaDeJuego.css">
 </head>
 <body>
-    <audio id="audio" src="Assets\Songs\GameOST.mp3" autoplay loop></audio>
+    <audio id="audio" src="Assets\Songs\GameOST.mp3" loop></audio>
     <div id="fondo">
         <div id="header">
             <div id="RedHead">
@@ -37,8 +37,27 @@
             </a>
         </div>
     </div>
-    <script type="module" src=".\Scripts\Logical\Music\Music.js"></script>
+    
     <script type="module" src=".\Scripts\Logical\JuegoDeMemoria.js"></script>
-    <!-- <script type="module" src="Scripts\Feactures\Partida.js"></script> -->
+
+    <script type="module" >
+        
+        const ajusteMusicaGuardado = localStorage.getItem('ajusteMusica');
+        const volumen = ajusteMusicaGuardado === 'true';
+
+        console.log(volumen);
+
+        let audio = document.getElementById('audio');
+
+        if (volumen) {
+            console.log("e mano");
+            audio.play();
+        } else {
+            audio.pause();
+            console.log("e manon't");
+
+        }
+
+    </script>
 </body>
 </html>
